@@ -9,8 +9,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 
-
-
 def find_optimal_clusters(data, max_k):
     iters = range(2, max_k+1, 2)
     
@@ -71,20 +69,19 @@ tfidf = TfidfVectorizer(
 tfidf.fit(data)
 text = tfidf.transform(data)
     
-# find_optimal_clusters(text, 14)
+find_optimal_clusters(text, 14)
 
 #from optimal cluster, n_cluster = 8
 clusters = MiniBatchKMeans(n_clusters=8, init_size=1024, batch_size=2048, random_state=20).fit_predict(text)
 
-# plot_tsne_pca(text, clusters)
+plot_tsne_pca(text, clusters)
 
-# get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
+get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
 
-# plt.show()
+plt.show()
 
 posts = list(user_timeline_connection.dbconnect_to_collection().find()) + list(twitter_search_connection.dbconnect_to_collection().find())
-# groups = []
-# cluster_index = 0
+
 posts_dict = {}
 
 for label,post in zip(clusters,posts):
@@ -93,9 +90,6 @@ for label,post in zip(clusters,posts):
     else:
         posts_dict[label] = [post]
         
-        
-# print(posts_dict)
-# loop over posts cluster
 
 mention = {}
 reply = {}
@@ -144,7 +138,6 @@ for key, values in posts_dict.items():
 
         
 
-
 # print("mention")
 # print(mention)
 
@@ -157,4 +150,5 @@ for key, values in posts_dict.items():
 # print("hashtags")
 # print(hashtags)
         
+print("done")
         
