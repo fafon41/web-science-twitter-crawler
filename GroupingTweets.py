@@ -3,6 +3,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+import nltk
+
 
 from sklearn.cluster import MiniBatchKMeans
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -69,21 +71,22 @@ tfidf = TfidfVectorizer(
 tfidf.fit(data)
 text = tfidf.transform(data)
     
-find_optimal_clusters(text, 14)
+# find_optimal_clusters(text, 14)
 
 #from optimal cluster, n_cluster = 8
 clusters = MiniBatchKMeans(n_clusters=8, init_size=1024, batch_size=2048, random_state=20).fit_predict(text)
 
-plot_tsne_pca(text, clusters)
+# plot_tsne_pca(text, clusters)
 
-get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
+# get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
 
-plt.show()
+# plt.show()
 
 posts = list(user_timeline_connection.dbconnect_to_collection().find()) + list(twitter_search_connection.dbconnect_to_collection().find())
 
 posts_dict = {}
 
+#seperate posts into grouped with the label
 for label,post in zip(clusters,posts):
     if label in posts_dict :
         posts_dict[label].append(post)
@@ -96,7 +99,10 @@ reply = {}
 retweet = {}
 hashtags = {}
 
+#for group in all groups
 for key, values in posts_dict.items():
+    print("group size " + str(key)+ " : ")
+    print(len(values))
     for post in values:
         if "entities" in post :
             #mention
@@ -137,18 +143,35 @@ for key, values in posts_dict.items():
                     retweet[post["user"]["id_str"]] = [post["retweeted_status"]["user"]["id_str"]]
 
         
+top_mentions = nltk.FreqDist(mention).most_common(5)
+top_reply = nltk.FreqDist(reply).most_common(5)
+top_retweet = nltk.FreqDist(retweet).most_common(5)
+top_hashtags = nltk.FreqDist(hashtags).most_common(5)
 
 # print("mention")
 # print(mention)
+print("mention size")
+print(len(mention))
+# print(top_mentions)
 
 # print("reply")
 # print(reply)
+print("reply size")
+print(len(reply))
+# print(top_reply)
+
 
 # print("retweet")
 # print(retweet)
+print("retweet size")
+print(len(retweet))
+# print(top_retweet)
 
 # print("hashtags")
 # print(hashtags)
-        
+print("hashtags size")
+print(len(hashtags))
+# print(top_hashtags)
+
 print("done")
         

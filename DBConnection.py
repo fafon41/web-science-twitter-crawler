@@ -6,19 +6,11 @@ from collections import Counter
 class DBconnection:
     dburl = ""
     dbText = ""
-    collectionString = ""
 
-    # url='mongodb://localhost:27017/'
-    # dbText="WEBSCIENCE"
-    # collectionString=  "twitter_meta_data"
     def __init__(self, url, dbText):
         self.dburl = url
         self.dbText = dbText
-        # if len(args) > 0:
-        #     self.collectionString = args[0]
-  
-    
-
+        
     def dbconnect_to_collection(self):
         '''
         get the collection from database
@@ -48,6 +40,8 @@ class DBconnection:
             collection = db.tweet_data 
         elif(self.dbText == "user_timeline"):
             collection = db.user_timeline
+        elif(self.dbText == "grouped_data"):
+            collection = db.grouped_data
 
         return collection
     
