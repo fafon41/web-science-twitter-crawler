@@ -146,39 +146,7 @@ def user_and_hashtag_connection(posts_dict):
         top_reply = nltk.FreqDist(reply).most_common(5)
         top_retweet = nltk.FreqDist(retweet).most_common(5)
         top_hashtags = nltk.FreqDist(hashtags).most_common(5)
-        # print("mention")
-        # print(mention)
-
-        print("mention size")
-        print(len(mention))
-        # print(top_mentions)
-        # print("\n")
-
-        # print("reply")
-        # print(reply)
-
-        print("reply size")
-        print(len(reply))
-        # print(top_reply)
-        # print("\n")
-
-
-        # print("retweet")
-        # print(retweet)
-
-        print("retweet size")
-        print(len(retweet))
-        # print(top_retweet)
-        # print("\n")
-
-        # print("hashtags")
-        # print(hashtags)
-
-        print("hashtags size")
-        print(len(hashtags))
-
-        # print(top_hashtags)
-        # print("\n")
+        
 
 
 
@@ -225,7 +193,7 @@ for label,post in zip(clusters,posts):
         posts_dict[label] = [post]
 
 for key, values in posts_dict.items():
-    collection = DBconnection('mongodb://localhost:27017/', "group_"+str(key)).dbconnect_to_collection()
+    collection = DBconnection('mongodb://localhost:27017/', "twitter_search").dbconnect_to_collection()
     collection.insert_many(values)
     print("insert group : " + str(key))
         
