@@ -49,14 +49,17 @@ def gen_type2_graph(links):
 
 def draw_type1_graph(links, name):
     G = gen_type1_graph(links)
-    print(f'plotting {name} graph')
-    print(f'with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges')
+    print('plotting ' + name + ' graph')
+    # print(f'plotting {name} graph')
+    print('with ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges')
+    # print(f'with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges')
     draw(G)
 
 def draw_type2_graph(links, name):
     G = gen_type2_graph(links)
-    print('plotting',name,'graph')
-    print(f'with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges')
+    print('plotting '+ name +' graph')
+    print('with ' + str(G.number_of_nodes()) + ' nodes and ' + str(G.number_of_edges()) + ' edges')
+    # print(f'with {G.number_of_nodes()} nodes and {G.number_of_edges()} edges')
     draw(G)
 
 # Extract mention links into dict from statuses in a given group
@@ -66,9 +69,8 @@ def mention_links(group):
     group = group_sampling(group)
 
     for status in group:
-        # owner = status['user']['name']
+        
         owner = status['user']['id']
-        # mentioned_users = list(map(lambda x:x['name'],status['entities']['user_mentions']))
         mentioned_users = list(map(lambda x:x['id'],status['entities']['user_mentions']))
         for user in mentioned_users:
             if not owner in result:
@@ -177,19 +179,26 @@ def ties_count(G,links):
     # return count_first, count_second
 
 if __name__ == "__main__":    
-    db = mongo.connect_to_db()
-    num_groups = db.get_collection('meta').find_one()['clusters']
+    
+    num_groups = 8
     print(num_groups)
 
     for k in range(num_groups+1):
-        if k == num_groups: # all statuses
+        if k == num_groups: # all general posts
             print()
-            print('loadin all statuses from DB ...')
-            print(f'Group {k}')
-            group = list(db.statuses.find())
+            print('loadin all posts from DB ...')
+            print('Group '+ str(k))
+            # print(f'Group {k}')
+            user_timeline_connection = DBconnection('mongodb://localhost:27017/', "user_timeline")
+            twitter_search_connection = DBconnection('mongodb://localhost:27017/', "twitter_search")
+            user_timeline = user_timeline_connection.dbconnect_to_collection().find()
+            twitter_search = twitter_search_connection.dbconnect_to_collection().find()
 
-            print(f'group {k} of size {len(group)}')
-            mention_interaction = mention_links(group)
+            data = list(user_timeline) + list(twitter_search)
+
+            # print(f'group {k} of size {len(group)}')
+            print('group '+ str(k) +'of size'+ str(len(data)))
+            mention_interaction = mention_links(data)
             G = gen_type1_graph(mention_interaction)
             print('Mention Graph Triads')
             print(triadic_census(G))
@@ -197,7 +206,7 @@ if __name__ == "__main__":
             print(ties_count(G,mention_interaction))
             draw_type1_graph(mention_interaction,str(k)+'-mention')
 
-            reply_interaction = reply_links(group)
+            reply_interaction = reply_links(data)
             G = gen_type1_graph(reply_interaction)
             print('Reply Graph Triads')
             print(triadic_census(G))
@@ -205,10 +214,10 @@ if __name__ == "__main__":
             print(ties_count(G,reply_interaction))
             draw_type1_graph(reply_interaction, str(k)+'-reply')
             
-            hashtag_together = hashtag_occuring_together(group)
+            hashtag_together = hashtag_occuring_together(data)
             draw_type2_graph(hashtag_together, str(k)+'-hashtag')
 
-            retweet_interaction = retweet_links(group)
+            retweet_interaction = retweet_links(data)
             G = gen_type1_graph(retweet_interaction)
             print('Retweet Graph Triads')
             print(triadic_census(G))
@@ -217,12 +226,18 @@ if __name__ == "__main__":
             draw_type1_graph(retweet_interaction, str(k)+'-retweet')
         else:
             print()
-            print(f'loading group {k} statuses from DB ...')
-            print(f'Group {k}')
-            
-            group = list(db.get_collection(f'group_{k}').find())
+            print('loading group '+ str(k) + 'from db ...')
+            # print(f'loading group {k} statuses from DB ...')
+            print('Group '+ str(k))
+            # print(f'Group {k}')
 
-            print(f'group {k} of size {len(group)}')
+            group_k_connection = DBconnection('mongodb://localhost:27017/', "group_"+str(k))
+            group_k = group_k_connection.dbconnect_to_collection().find()
+
+            group = list(group_k)
+
+            # print(f'group {k} of size {len(group)}')
+            print('group : '+ str(k) + ' size : ' + str(len(group)))
             mention_interaction = mention_links(group)
             G = gen_type1_graph(mention_interaction)
             print('Mention Graph Triads')

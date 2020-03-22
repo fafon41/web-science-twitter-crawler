@@ -16,32 +16,23 @@ class DBconnection:
         get the collection from database
         :return: collection
         '''
-        # try:
-        #     myclient = pymongo.MongoClient(self.dburl)
-
-        #     db = myclient[self.dbText]
-        #     collection = db[self.collectionString]
-        #     return collection
-        # except:
-        #     print("fail to connect to collection(table)")
-
         try: 
-            conn = MongoClient() 
-            print("Connected successfully!!!") 
+            conn = MongoClient(self.dburl) 
+            # print("Connected successfully!!!") 
         except:   
             print("Could not connect to MongoDB") 
-
-        # database 
         
         db = conn.database 
         
-        # Created or Switched to collection names: tweet_data
-        if(self.dbText == "twitter_search"):
-            collection = db.tweet_data 
-        elif(self.dbText == "user_timeline"):
-            collection = db.user_timeline
-        elif(self.dbText == "grouped_data"):
-            collection = db.grouped_data
+        # Created or Connected to collection names
+        # if(self.dbText == "twitter_search"):
+        #     collection = db.tweet_data 
+        # elif(self.dbText == "user_timeline"):
+        #     collection = db.user_timeline
+        # elif(self.dbText == "grouped_data"):
+        #     collection = db.grouped_data
+        # else :
+        collection = db.get_collection(self.dbText)
 
         return collection
     
@@ -58,7 +49,6 @@ class DBconnection:
         else:
             print("insert failed")
 
-
     def insert_many_item(self, itemDicts):
         '''
         insert many data into collection
@@ -71,7 +61,7 @@ class DBconnection:
         else:
             print("insert many failed")
 
-
+    # get a list of in reply to users
     def getRepliedUser(self):
         'find top 5 mentioned user '
         x = self.dbconnect_to_collection().find()
@@ -85,10 +75,12 @@ class DBconnection:
                     resultslist.append(elem["in_reply_to_user_id_str"])
         return resultslist
 
+    # get a list of frequent user
     def mostFrequentRepliedUser(self, lst):
         occurence_count = Counter(lst) 
         return occurence_count.most_common(5)
 
+    # get the full text of every post
     def getAllText(self):
         x = self.dbconnect_to_collection().find()
         resultslist = []

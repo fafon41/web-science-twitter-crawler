@@ -1,0 +1,8 @@
+|['group : 0', ' size : 86']| ['top_usernames'] |[(u'Donald J. Trump', 26)]| |[(u'Nancy Pelosi', 26)]| |[(u'Chuck Schumer', 15)]| |[(u'Rick Wilson', 11)]| |[(u'Alexandria Ocasio-Cortez', 8)]|
+|['group : 1', ' size : 186']| ['top_usernames'] |[(u'Rick Wilson', 64)]| |[(u'Donald J. Trump', 51)]| |[(u'Alexandria Ocasio-Cortez', 48)]| |[(u'Nancy Pelosi', 17)]| |[(u'Chuck Schumer', 6)]|
+|['group : 2', ' size : 27']| ['top_usernames'] |[(u'Donald J. Trump', 16)]| |[(u'Alexandria Ocasio-Cortez', 8)]| |[(u'Nancy Pelosi', 3)]|
+|['group : 3', ' size : 271']| ['top_usernames'] |[(u'Alexandria Ocasio-Cortez', 68)]| |[(u'Nancy Pelosi', 60)]| |[(u'Rick Wilson', 54)]| |[(u'Chuck Schumer', 50)]| |[(u'Donald J. Trump', 39)]|
+|['group : 4', ' size : 229']| ['top_usernames'] |[(u'Nancy Pelosi', 65)]| |[(u'Chuck Schumer', 57)]| |[(u'Alexandria Ocasio-Cortez', 54)]| |[(u'Donald J. Trump', 40)]| |[(u'Rick Wilson', 13)]|
+|['group : 5', ' size : 33']| ['top_usernames'] |[(u'Donald J. Trump', 19)]| |[(u'Alexandria Ocasio-Cortez', 7)]| |[(u'Nancy Pelosi', 6)]| |[(u'Chuck Schumer', 1)]|
+|['group : 6', ' size : 42']| ['top_usernames'] |[(u'Rick Wilson', 42)]|
+|['group : 7', ' size : 125']| ['top_usernames'] |[(u'Chuck Schumer', 71)]| |[(u'Nancy Pelosi', 23)]| |[(u'Rick Wilson', 15)]| |[(u'Donald J. Trump', 9)]| |[(u'Alexandria Ocasio-Cortez', 7)]|

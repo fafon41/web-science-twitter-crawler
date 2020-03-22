@@ -1,0 +1,178 @@
+group 2 size : 
+77366
+mention size
+62403
+[('1887375954', ['999958937368780801', '2874474721', '1887375954']), ('987576494', ['999652068452429824']), ('191615659', ['999496978835935232']), ('1634254009', ['999418905780076544', '1032809706757259273', '2896151700', '4157939543', '2836421', '232268199']), ('2959303689', ['999418905780076544', '1032809706757259273', '2896151700', '4157939543'])]
+
+
+reply size
+6140
+[('1238551027961520129', [1238551027961520129]), ('1238534049590906884', [1238534049590906884]), ('1238525675717476352', [1238525675717476352]), ('1237132265341308930', [1238524090694152198]), ('1238522588403507201', [1238522588403507201])]
+
+
+retweet size
+46656
+[('1887375954', ['999958937368780801']), ('1634254009', ['999418905780076544', '2836421', '232268199']), ('2959303689', ['999418905780076544']), ('3364041959', ['999284615763382273']), ('1202626588082225152', ['999284615763382273'])]
+
+
+hashtags size
+2211
+[('CDCTRAVELNOTICE', {'Coronavirus', 'Europe', 'CDCTRAVELNOTICE'}), ('Medicare', {'Medicare'}), ('Coronavirus', {'Argentina', 'CDCTRAVELNOTICE', 'Covid19', 'COVID', 'Breaking', 'Iran', 'COVID19', 'ކޯވިޑް19', 'Venezuela', 'Qatar', 'corona', 'Mumbai', 'bankrupt', 'Europe', 'USNews', 'rip', 'CoronaVirusIran', 'FlattenTheCurve', 'CoronaVirusUpdates', 'IT', 'egypt', 'IamJChristopher', 'SocialDistancing', 'cyberattack', 'Karachi', 'DemocratHoax', 'Storm', 'California', 'JustIn', 'Community', 'Coming', 'flatteningthecurve', 'Sanctions', 'DonaldTrump', 'Medicaid', 'PBC', 'hostage', 'pandemic', 'NY', 'Richmond', 'CoronaOutbreak', 'Q_Anon', 'coronavirus', 'COVID2019', 'climate', 'Coronavirus', 'notice', 'Maharashtra', 'Covid_19', 'China', 'Pandemic', 'LevarStoney', 'WorldNews', 'Missouri', 'BREAKING', 'NationalEmergency', 'SARSCoV2', 'hospital', 'FamiliesFirst', 'CoronavirusInSA', 'CoronavirusPandemic', 'Murcia', 'Travel', 'Emergency', 'CoronavirusSpain'}), ('Europe', {'Coronavirus', 'Europe', 'CDCTRAVELNOTICE', 'WHO', 'coronavirus'}), ('COVID19', {'Caregivers', 'SharpRecovery', 'Ayatollah', 'Canada', 'Anesthesiologists', 'coronavirusireland', 'Brexit', 'SARS', 'Asia', 'ARnews', 'COVID19US', 'BBC', 'WorstPresidentInHistory', 'Scam', 'NewYorkCity', 'cancer', 'ALS', 'TrumptheWorstPresidentEVER', 'NC', 'WHO', 'PopFest', 'FlattenTheCurve', 'coronavirusinindia', 'lockdown', 'prescriptiondelivery', 'Spain', 'Brazzaville', 'VoteCollinsOut', 'TaiwanCanHelp', 'COVIDー19', 'LTC', 'webinar', 'PPE', 'NHS', 'ableg', 'health', 'EBRD', 'HongKong', 'juststayhome', 'Sweden', 'bearmarket', 'FalseFlag', 'Covid_19', 'Minnesota', 'CoronaVirusPandemic', 'Alabama', 'loans', 'DigitalDivide', 'UBIStimulus', 'SantaBarbaraCounty', 'Journalist', 'EUSolidarityFund', 'H1N1', 'kansas', 'London', 'CoronavirusESP', 'coronarvirusitalia', 'quarantine', 'paidleave', 'AIDS', 'UWMadison', 'corona', 'STLCounty', 'MOABS', 'ID', 'oncology', 'Covidtesting', 'ckont', 'Pandumbic', 'stocks', 'AntimicrobialStewardship', 'chaga_gangsta', 'NIH', 'Kenya', 'emergency', 'molpath', 'RecessionIsComing', 'BHIVA', 'personalfinance', 'ChinaVirus', 'CoronaVirus', 'pandemic', 'pademic', 'DowJones', 'kimforcongress', 'highered', 'BePrepared', 'NationalEmergency', 'hospital', 'SharpieRecovery', 'MamaneKakaTouda', 'COVID19india', 'Emergency', 'SARSCoV2', 'CoronaAlert', 'socializedmedicine', 'WuhanVirus', 'Macomb', 'QuarantineAndChill', 'CyberSecurity', 'truth', 'Maldives', 'COVID19', 'Sunnybrook', 'WashYourHands', 'ކޯވިޑް19', 'UFT', 'publichealth', 'TrumpVirus', 'Mumbai', 'patients', 'mepolitics', 'maga', 'QAnon', 'TrumpAddress', 'NewJersey', 'NM', 'CoronaVirusUpdates', 'gynaecological', 'EBRDregions', 'DemocratHoax', 'Corona', 'class', 'enabler', '2A', 'DataProtection', 'CoronaCamps', 'TN', 'COVID2019', 'FoxNews', 'Coronavirus', 'Africa', 'panicbuying', 'OxfordUniversity', 'Pandemic', 'Healthcare', 'CoronavirusOutbreak', 'energy', 'Obama', 'ScamAlert', 'Monterey', 'SpainCoronaVirus', 'VoteBlue2020', 'Nurses', 'locusts', 'clinicaltrials', 'wichita', 'COVID', 'healthcare', 'Iran', 'Wuhan', 'relativity', 'Childcare', 'CulverCity', 'StateOfEmergency', 'ECMO', 'NYS', 'paidsickdays', 'Trump', 'Congo', 'remdesivir', 'txlege', 'ISBA', 'abpoli', 'UK', 'coronavirus', 'ourSIPTU', 'UN', 'CoronaOutbreak', 'Marathon', 'CloseTheSchools', 'COVID2019uk', 'PANICdemic', 'GNMK', 'selfisolating', 'MAGA', 'CoronavirusPandemic', 'Coronovirus', 'SARSCOV2', 'MainersAgainstKavanaugh', 'CoronavirusSpain', 'Taiwan'})]
+
+
+group 0 size : 
+6137
+mention size
+5629
+[('468712805', ['979502035', '1213634165398130688', '120154492', '940763991986659329', '817661098988019712']), ('498261015', ['963790885937995777']), ('817858160195235840', ['942156122', '19739126', '1249982359', '25073877']), ('1165007821429256193', ['939091', '939091']), ('965191585', ['939091'])]
+
+
+reply size
+127
+[('1227045808580833280', [1227045808580833280]), ('1186317915559100417', [1225071806509436929, 2323007287, 878087280321335298, 878087280321335298, 822215673812119553, 822215673812119553, 25073877, 25073877]), ('28032705', [1221961613596598274]), ('158025740', [1215420238973399040]), ('926840430318190592', [1211843421373005824])]
+
+
+retweet size
+5475
+[('1541731422', ['897956568']), ('51570590', ['885897549684645888']), ('2863966235', ['821346996661403650']), ('1213707051244777472', ['821346996661403650']), ('304123273', ['821346996661403650'])]
+
+
+hashtags size
+4
+[('Obama', {'Obama'}), ('H1N1', {'H1N1'}), ('FactsMatter', {'FactsMatter'}), ('context', {'context'})]
+
+
+group 4 size : 
+6984
+mention size
+6404
+[('821346996661403650', ['997312910748680192', '817661098988019712']), ('1114631166', ['997312910748680192', '43035019']), ('787243415708823552', ['997312910748680192']), ('905549856516710400', ['997312910748680192']), ('2582695217', ['997312910748680192'])]
+
+
+reply size
+143
+[('1106360546637611008', [1237860414689435649]), ('926840430318190592', [1211843421373005824]), ('1047983519807561728', [1182057156931137536]), ('1155312569361547264', [1155312569361547264]), ('346014141', [1129927446977961985])]
+
+
+retweet size
+5347
+[('821346996661403650', ['997312910748680192', '817661098988019712']), ('1114631166', ['997312910748680192', '43035019']), ('787243415708823552', ['997312910748680192']), ('905549856516710400', ['997312910748680192']), ('2582695217', ['997312910748680192'])]
+
+
+hashtags size
+148
+[('Covid_19', {'Covid_19', 'OneVoice1', 'coronapocalypse', 'USA', 'COVID19', 'MichaelScott', 'coronavirus', 'theoffice', 'CoronavirusPandemic', 'Numerology', 'Friday13th', 'BotchedResponse', 'corona', 'CoronaOutbreak'}), ('CoronaVirus', {'CoronaVirus', '25thAmendment'}), ('DailyLie', {'SOTU', 'DailyLie'}), ('USA', {'USA', 'Covid_19'}), ('SOTU', {'SOTU', 'DailyLie'})]
+
+
+group 5 size : 
+2951
+mention size
+2897
+[('21059255', ['455024343']), ('757999087', ['26159450', '255812611', '21059255', '455024343']), ('4646677163', ['26159450', '255812611', '21059255', '455024343']), ('465133814', ['26159450', '255812611']), ('21011924', ['26159450', '255812611'])]
+
+
+reply size
+0
+[]
+
+
+retweet size
+2895
+[('757999087', ['26159450', '255812611', '21059255']), ('4646677163', ['26159450', '255812611', '21059255']), ('465133814', ['26159450', '255812611']), ('21011924', ['26159450', '255812611']), ('80975326', ['26159450', '21059255'])]
+
+
+hashtags size
+0
+[]
+
+
+group 1 size : 
+2234
+mention size
+2194
+[('16301213', ['865671557745483776', '865671557745483776']), ('765954197313511424', ['865671557745483776', '865671557745483776']), ('572939295', ['865671557745483776', '865671557745483776']), ('115252451', ['865671557745483776', '759481842814726144']), ('2596152405', ['865671557745483776', '759481842814726144'])]
+
+
+reply size
+0
+[]
+
+
+retweet size
+2193
+[('16301213', ['865671557745483776', '865671557745483776']), ('765954197313511424', ['865671557745483776', '865671557745483776']), ('572939295', ['865671557745483776', '865671557745483776']), ('115252451', ['865671557745483776', '759481842814726144']), ('2596152405', ['865671557745483776', '759481842814726144'])]
+
+
+hashtags size
+0
+[]
+
+
+group 6 size : 
+1863
+mention size
+1835
+[('110584550', ['913063871681835008', '25873558']), ('1144047118883184642', ['913063871681835008', '25873558']), ('3080306955', ['913063871681835008', '25873558']), ('1293656136', ['913063871681835008', '25873558']), ('4632119354', ['913063871681835008'])]
+
+
+reply size
+0
+[]
+
+
+retweet size
+1832
+[('110584550', ['913063871681835008', '25873558']), ('1144047118883184642', ['913063871681835008', '25873558']), ('3080306955', ['913063871681835008', '25873558']), ('1293656136', ['913063871681835008', '25873558']), ('4632119354', ['913063871681835008'])]
+
+
+hashtags size
+1
+[('coronavirus', {'coronavirus'})]
+
+
+group 7 size : 
+2609
+mention size
+2607
+[('1192608471977472000', ['769379882728091648']), ('750016190697791488', ['762299404313243648']), ('379554483', ['48459553', '48459553']), ('2496338378', ['48459553']), ('1090075611521941509', ['48459553'])]
+
+
+reply size
+1
+[('750016190697791488', [762299404313243648])]
+
+
+retweet size
+2600
+[('1192608471977472000', ['769379882728091648']), ('379554483', ['48459553', '48459553']), ('2496338378', ['48459553']), ('1090075611521941509', ['48459553']), ('17995040', ['48459553'])]
+
+
+hashtags size
+0
+[]
+
+
+group 3 size : 
+1129
+mention size
+1128
+[('43600111', ['786309892990574592', '786309892990574592']), ('849828186837757952', ['786309892990574592']), ('1220506615637532672', ['786309892990574592']), ('1224298053739384833', ['786309892990574592']), ('119503063', ['786309892990574592'])]
+
+
+reply size
+0
+[]
+
+
+retweet size
+1128
+[('43600111', ['786309892990574592', '786309892990574592']), ('849828186837757952', ['786309892990574592']), ('1220506615637532672', ['786309892990574592']), ('1224298053739384833', ['786309892990574592']), ('119503063', ['786309892990574592'])]
+
+
+hashtags size
+0
+[]
+
+
+general size
+101273
