@@ -1,11 +1,6 @@
 import tweepy
 
 from DBConnection import DBconnection
-# from StreamingApiForUserTimeline import StreamingApiForUserTimeline
-
-#task 1a
-#run streaming api to filter twitter by words "hospital", "emergency" and "patient"
-
 
 #task 2a
 #find the most frequent replied user as a group of super users
@@ -37,24 +32,13 @@ try:
         for status in user_timeline:
             timeline_items.insert_many_item(status._json)
 
-        # StreamingApiForUserTimeline.streamingTimeline(auth, b, k)
-
-
-    # print(timeline)
-
 except tweepy.RateLimitError:
     print("api hit the limit")
     try:
-        # SA = StreamingApiForUserTimeline()
-        # timeline = api.user_timeline(id = "1238478818135945216" , count = 200)
-
         for k in mostFrequent.keys():
             user_timeline = api.user_timeline(id = k, count = 200)
             for status in user_timeline:
                 timeline_items.insert_many_item(status._json)
-
-            # StreamingApiForUserTimeline.streamingTimeline(auth, SA, k)
-        # StreamingApiForSearch.StreamingApiForUserTimeline(auth, SA, mostFrequent.keys())
 
     except tweepy.RateLimitError:
         print("api1 hit the limit")

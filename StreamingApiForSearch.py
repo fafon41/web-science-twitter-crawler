@@ -28,30 +28,15 @@ class StreamingApiForSearch(tweepy.StreamListener):
         print("limitation arrive")
         return False
 
-    # def create_dict(self,list_):
-    #     no_of_tweets = 5
-    #     dict_ =  {k:no_of_tweets for k in list_ }
-    #     return dict_
-
 
     def main(self, status_main, **kwargs):
-        # search by hashtag
-        # for hashtag in status_main._json["entities"]["hashtags"]:
-        #     print(hashtag)
-        #     if hashtag["text"] == "MondayMotivation":
         print(status_main.text)
-        
 
-    
-    # itemDicts = status_main._json
-    # if len(kwargs) > 0:
-    #     kwargs[0].insert_many_item(itemDicts)
 
     @classmethod
     def streamingSearch(cls, auth, instance, query):
         StreamingApiForSearch = instance
         start_time = time.time()
-        # search_results = api.search(q=[query], count=10)
         mystreaming = tweepy.Stream(auth=auth, listener=StreamingApiForSearch)
         
         mystreaming.filter(track=query, languages=["en"])
@@ -59,10 +44,7 @@ class StreamingApiForSearch(tweepy.StreamListener):
 
 
 if __name__ == '__main__':
-    # b = StreamingApiForHashtag()
-    # StreamingApiForHashtag.streamingSearchByHashtag(b, "MondayMotivation")
     
-
     try:
         # Authenticate to Twitter
         auth = tweepy.OAuthHandler("pufsHjYCuMV23ni0fiWgzS9w5", "0wo6yWriPRtCJH7T8Ogt6fQllDGJ0HtZQQYbfZpgKsjmbEzO9D")
@@ -74,17 +56,18 @@ if __name__ == '__main__':
         api = tweepy.API(auth, wait_on_rate_limit=True,
             wait_on_rate_limit_notify=True)
 
-        b = StreamingApiForSearch()
 
-        # StreamingApiForSearch.streamingSearch(auth, b, ["hospital","emergency"])
-        StreamingApiForSearch.streamingSearch(auth, b, ["patient"])
+        b = StreamingApiForSearch()
+        
+        #task 1a
+        #run streaming api to filter twitter by words "hospital", "emergency" and "patient"
+        StreamingApiForSearch.streamingSearch(auth, b, ["hospital","emergency","patient"])
 
     except tweepy.RateLimitError:
         print("api hit the limit")
         try:
             SA = StreamingApiForSearch()
-            # StreamingApiForSearch.streamingSearch(auth, SA, ["hospital","emergency"])
-            StreamingApiForSearch.streamingSearch(auth, SA, ["patient"])
+            StreamingApiForSearch.streamingSearch(auth, SA, ["hospital","emergency","patient"])
 
         except tweepy.RateLimitError:
             print("api1 hit the limit")

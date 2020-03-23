@@ -95,60 +95,6 @@ def username_and_hashtag_identification(posts_dict):
 
     write_csv('top_values', all_rows)
 
-def user_and_hashtag_connection(posts_dict):
-    for key, values in posts_dict.items():
-        print("group " + str(key)+ " size : ")
-        print(len(values))
-        mention = {}
-        reply = {}
-        retweet = {}
-        hashtags = {}
-        for post in values:
-            if "entities" in post :
-                #mention
-                if "user_mentions" in post["entities"]:
-                    if post["user"]["id_str"] in mention:
-                        mention[post["user"]["id_str"]] += [u['id_str'] for u in post["entities"]["user_mentions"]]
-                    else:
-                        mention[post["user"]["id_str"]] = [u['id_str'] for u in post["entities"]["user_mentions"]]
-
-                #hashtag
-                if post["entities"]["hashtags"] is not None:
-                    for one in post["entities"]["hashtags"]:
-                        for two in post["entities"]["hashtags"]:
-                            #Adding condition
-                            if one["text"] in hashtags:
-                                hashtags[one["text"]].add(two["text"])
-                            else:
-                                hashtags[one["text"]] = set([two["text"]])
-                            
-                            if two["text"] in hashtags:
-                                hashtags[two["text"]].add(one["text"])
-                            else:
-                                hashtags[two["text"]] = set([one["text"]])
-
-            #reply
-            if post["in_reply_to_user_id"] is not None : 
-                if post["user"]["id_str"] in reply:
-                    reply[post["user"]["id_str"]].append(post["in_reply_to_user_id"])
-                else:
-                    reply[post["user"]["id_str"]] = [post["in_reply_to_user_id"]]
-
-            #retweet
-            if "retweeted_status" in post:
-                if "user" in post["retweeted_status"]:
-                    if post["user"]["id_str"] in retweet:
-                        retweet[post["user"]["id_str"]].append(post["retweeted_status"]["user"]["id_str"])
-                    else:
-                        retweet[post["user"]["id_str"]] = [post["retweeted_status"]["user"]["id_str"]]
-
-        top_mentions = nltk.FreqDist(mention).most_common(5)
-        top_reply = nltk.FreqDist(reply).most_common(5)
-        top_retweet = nltk.FreqDist(retweet).most_common(5)
-        top_hashtags = nltk.FreqDist(hashtags).most_common(5)
-        
-
-
 
 user_timeline_connection = DBconnection('mongodb://localhost:27017/', "user_timeline")
 twitter_search_connection = DBconnection('mongodb://localhost:27017/', "twitter_search")
@@ -167,18 +113,18 @@ tfidf = TfidfVectorizer(
 tfidf.fit(data)
 text = tfidf.transform(data)
     
-# find_optimal_clusters(text, 14)
+find_optimal_clusters(text, 14)
 
 #from optimal cluster, n_cluster = 8
 clusters = MiniBatchKMeans(n_clusters=8, init_size=1024, batch_size=2048, random_state=20).fit_predict(text)
 
-# plot_tsne_pca(text, clusters)
+plot_tsne_pca(text, clusters)
 
 # show 10 samples of top keywords
-# get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
+get_top_keywords(text, clusters, tfidf.get_feature_names(), 10)
 
 # show the graph generated
-# plt.show()
+plt.show()
 
 posts = list(user_timeline_connection.dbconnect_to_collection().find()) + list(twitter_search_connection.dbconnect_to_collection().find())
 
@@ -200,12 +146,4 @@ for key, values in posts_dict.items():
 # 3b Extract important usernames; hashtags and entities/concepts
 username_and_hashtag_identification(posts_dict)
 
-# 4a and 4b
-# capture user mention and hashtags connection in all groups
-user_and_hashtag_connection(posts_dict)
-
-print("general size")
-print(len(posts))
-
-print("done")
         

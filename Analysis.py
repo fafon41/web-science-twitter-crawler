@@ -142,73 +142,90 @@ def ties_count(G,links):
    
 
 if __name__ == "__main__":    
-    
+    # 4a and 4b
+    # capture user mention and hashtags connection in all groups
+
+
+    # The connection in all group
     num_groups = 8
     print(num_groups)
 
-    for k in range(num_groups+1):
-        if k == num_groups: # all general posts
-            print('\nAll Posts')
-            print('Group '+ str(k))
-            user_timeline_connection = DBconnection('mongodb://localhost:27017/', "user_timeline")
-            twitter_search_connection = DBconnection('mongodb://localhost:27017/', "twitter_search")
-            user_timeline = user_timeline_connection.dbconnect_to_collection().find()
-            twitter_search = twitter_search_connection.dbconnect_to_collection().find()
+    for k in range(num_groups):
+        
+        print('loading group '+ str(k) + 'from db ...')
+        print('Group '+ str(k))
 
-            data = list(user_timeline) + list(twitter_search)
+        group_k_connection = DBconnection('mongodb://localhost:27017/', "group_"+str(k))
+        group_k = group_k_connection.dbconnect_to_collection().find()
 
-            print('group '+ str(k) +'of size'+ str(len(data)))
-            mention_interaction = mention_connections(data)
-            G = gen_type1_graph(mention_interaction)
-            print('Mention Graph Triads')
-            print(triadic_census(G))
-            print('Mention Graph Ties')
-            print(ties_count(G,mention_interaction))
-            draw_type1_graph(mention_interaction,str(k)+'-mention')
+        group = list(group_k)
 
-            reply_interaction = reply_connections(data)
-            G = gen_type1_graph(reply_interaction)
-            print('Reply Graph Triads')
-            print(triadic_census(G))
-            print('Reply Graph Ties')
-            print(ties_count(G,reply_interaction))
-            draw_type1_graph(reply_interaction, str(k)+'-reply')
-            
-            hashtag_together = hashtag_connections(data)
-            draw_type2_graph(hashtag_together, str(k)+'-hashtag')
+        print('group : '+ str(k) + ' size : ' + str(len(group)))
 
-            retweet_interaction = retweet_connections(data)
-            G = gen_type1_graph(retweet_interaction)
-            print('Retweet Graph Triads')
-            print(triadic_census(G))
-            print('Retweet Graph Ties')
-            print(ties_count(G,retweet_interaction))
-            draw_type1_graph(retweet_interaction, str(k)+'-retweet')
-        else:
-            print('loading group '+ str(k) + 'from db ...')
-            print('Group '+ str(k))
+        # Mention Connection
+        mention_interaction = mention_connections(group)
+        G = gen_type1_graph(mention_interaction)
+        print('Mention Graph Triads')
+        print(triadic_census(G))
+        print('Mention Graph Ties')
+        print(ties_count(G,mention_interaction))
+        draw_type1_graph(mention_interaction,str(k)+'-mention')
 
-            group_k_connection = DBconnection('mongodb://localhost:27017/', "group_"+str(k))
-            group_k = group_k_connection.dbconnect_to_collection().find()
+        # Reply Connection
+        reply_interaction = reply_connections(group)
+        G = gen_type1_graph(reply_interaction)
+        print('Reply Graph Triads')
+        print(triadic_census(G))
+        print('Reply Graph Ties')
+        print(ties_count(G,reply_interaction))
+        draw_type1_graph(reply_interaction, str(k)+'-reply')
+        
+        # Hashtag Connection
+        hashtag_together = hashtag_connections(group)
+        draw_type2_graph(hashtag_together, str(k)+'-hashtag')
 
-            group = list(group_k)
 
-            print('group : '+ str(k) + ' size : ' + str(len(group)))
-            mention_interaction = mention_connections(group)
-            G = gen_type1_graph(mention_interaction)
-            print('Mention Graph Triads')
-            print(triadic_census(G))
-            print('Mention Graph Ties')
-            print(ties_count(G,mention_interaction))
-            draw_type1_graph(mention_interaction,str(k)+'-mention')
+    # The connection in general data
+    print('\nAll Posts')
+    
+    user_timeline_connection = DBconnection('mongodb://localhost:27017/', "user_timeline")
+    twitter_search_connection = DBconnection('mongodb://localhost:27017/', "twitter_search")
+    user_timeline = user_timeline_connection.dbconnect_to_collection().find()
+    twitter_search = twitter_search_connection.dbconnect_to_collection().find()
 
-            reply_interaction = reply_connections(group)
-            G = gen_type1_graph(reply_interaction)
-            print('Reply Graph Triads')
-            print(triadic_census(G))
-            print('Reply Graph Ties')
-            print(ties_count(G,reply_interaction))
-            draw_type1_graph(reply_interaction, str(k)+'-reply')
-            
-            hashtag_together = hashtag_connections(group)
-            draw_type2_graph(hashtag_together, str(k)+'-hashtag')
+    data = list(user_timeline) + list(twitter_search)
+
+    print('general data of size'+ str(len(data)))
+
+    # Mention Connection
+    mention_interaction = mention_connections(data)
+    G = gen_type1_graph(mention_interaction)
+    print('Mention Graph Triads')
+    print(triadic_census(G))
+    print('Mention Graph Ties')
+    print(ties_count(G,mention_interaction))
+    draw_type1_graph(mention_interaction,str(k)+'-mention')
+
+    # Reply Connection
+    reply_interaction = reply_connections(data)
+    G = gen_type1_graph(reply_interaction)
+    print('Reply Graph Triads')
+    print(triadic_census(G))
+    print('Reply Graph Ties')
+    print(ties_count(G,reply_interaction))
+    draw_type1_graph(reply_interaction, str(k)+'-reply')
+
+    # Retweet Connection
+    retweet_interaction = retweet_connections(data)
+    G = gen_type1_graph(retweet_interaction)
+    print('Retweet Graph Triads')
+    print(triadic_census(G))
+    print('Retweet Graph Ties')
+    print(ties_count(G,retweet_interaction))
+    draw_type1_graph(retweet_interaction, str(k)+'-retweet')
+    
+    # Hashtag Connection
+    hashtag_together = hashtag_connections(data)
+    draw_type2_graph(hashtag_together, str(k)+'-hashtag')
+
+    
